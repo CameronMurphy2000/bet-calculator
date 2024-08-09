@@ -1,0 +1,83 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.roulette-board {
+    display: grid;
+    grid-template-columns: repeat(13, 40px); /* 13 columns for the numbers */
+    grid-template-rows: repeat(3, 40px); /* 3 rows for the numbers */
+    gap: 2px;
+    margin: 20px auto; /* Margin added */
+}
+
+.roulette-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.roulette-cell.red {
+    background-color: red;
+    color: white;
+}
+
+.roulette-cell.black {
+    background-color: black;
+    color: white;
+}
+
+.roulette-cell.green {
+    background-color: green;
+    color: white;
+}
+
+.chip {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.chip-text {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+#winner {
+    font-size: 18px;
+    margin-top: 20px;
+}

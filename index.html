@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Payout Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Roulette Payout Calculator</h1>
+        <div id="roulette-board" class="roulette-board"></div>
+        <div id="winner"></div>
+        <form id="payout-form">
+            <label for="max-chips">Max Chips:</label>
+            <input type="number" id="max-chips" value="10" min="1" max="100">
+            <br><br>
+            <label for="payout">Total Payout:</label>
+            <input type="number" id="payout">
+            <button type="submit">Check Payout</button>
+        </form>
+        <button id="new-bet">Generate New Bet</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
