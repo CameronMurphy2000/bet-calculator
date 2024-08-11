@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -32,5 +31,31 @@ body {
 #new-bet {
     margin-top: 20px;
     padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* New styles for previous bets and streak counter */
+.streak-counter {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.previous-bets {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.previous-bets h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.previous-bets ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.previous-bets li {
+    margin-bottom: 10px;
     font-size: 16px;
 }

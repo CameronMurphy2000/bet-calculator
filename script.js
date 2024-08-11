@@ -1,5 +1,3 @@
-// script.js
-
 // Possible bets and their payout multipliers
 const betTypes = [
     { name: "Straight Up", payout: 35, type: "straight", chips: 0 },
@@ -12,6 +10,7 @@ const betTypes = [
 let winningNumber = null;
 let totalPayout = 0;
 let maxChips = 10; // Default maximum chips
+let streakCount = 0; // Initialize streak counter
 
 // Generate a random number between 0 and max (inclusive)
 function getRandomInt(max) {
@@ -50,14 +49,30 @@ document.getElementById('payout-form').addEventListener('submit', function (even
     event.preventDefault();
     const userPayout = parseInt(document.getElementById('payout').value);
 
-    if (userPayout === totalPayout) {
+    // Check if the user input matches the calculated payout
+    const isCorrect = userPayout === totalPayout;
+
+    if (isCorrect) {
         document.getElementById('result').innerText = "Correct!";
         document.getElementById('result').style.color = "green";
+        streakCount++;
     } else {
         document.getElementById('result').innerText = `Incorrect. The correct payout was ${totalPayout}.`;
         document.getElementById('result').style.color = "red";
+        streakCount = 0; // Reset streak counter if wrong
     }
+
+    // Update streak count display
+    document.getElementById('streak-count').innerText = streakCount;
+
+    // Record the previous bet and result
+    const betSummary = `Correct Payout: ${totalPayout} | Your Answer: ${userPayout} | Result: ${isCorrect ? 'Correct' : 'Incorrect'}`;
+    const betList = document.getElementById('bets-list');
+    const newListItem = document.createElement('li');
+    newListItem.innerText = betSummary;
+    betList.insertBefore(newListItem, betList.firstChild); // Add new item at the top of the list
 });
+
 
 // Initialize the first bet with default max chips
 generateBet();

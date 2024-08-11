@@ -10,7 +10,6 @@
     <div class="container">
         <h1>Roulette Payout Simulator</h1>
 
-        <!-- New Max Chips Input -->
         <label for="max-chips">Set Maximum Chips:</label>
         <input type="number" id="max-chips" name="max-chips" min="1" max="100" value="10">
         <button id="set-max-chips" onclick="generateBet()">Set Max Chips and Generate Bet</button>
@@ -25,6 +24,15 @@
         
         <div id="result" class="result"></div>
         <button id="new-bet" onclick="generateBet()">New Bet</button>
+
+        <!-- New Section for Previous Bets and Streak Counter -->
+        <div class="streak-counter">
+            <h2>Streak: <span id="streak-count">0</span></h2>
+        </div>
+        <div id="previous-bets" class="previous-bets">
+            <h2>Previous Bets</h2>
+            <ul id="bets-list"></ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
