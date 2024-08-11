@@ -25,10 +25,13 @@
         <div id="result" class="result"></div>
         <button id="new-bet" onclick="generateBet()">New Bet</button>
 
-        <!-- New Section for Previous Bets and Streak Counter -->
-        <div class="streak-counter">
+        <!-- New Section for Streak Counter, Correct, and Incorrect Counts -->
+        <div class="counters">
             <h2>Streak: <span id="streak-count">0</span></h2>
+            <h3>Total Correct: <span id="correct-count">0</span></h3>
+            <h3>Total Incorrect: <span id="incorrect-count">0</span></h3>
         </div>
+
         <div id="previous-bets" class="previous-bets">
             <h2>Previous Bets</h2>
             <ul id="bets-list"></ul>

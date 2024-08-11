@@ -11,6 +11,8 @@ let winningNumber = null;
 let totalPayout = 0;
 let maxChips = 10; // Default maximum chips
 let streakCount = 0; // Initialize streak counter
+let correctCount = 0; // Initialize correct counter
+let incorrectCount = 0; // Initialize incorrect counter
 
 // Generate a random number between 0 and max (inclusive)
 function getRandomInt(max) {
@@ -65,21 +67,28 @@ document.getElementById('payout-form').addEventListener('submit', function (even
         document.getElementById('result').innerText = "Correct!";
         document.getElementById('result').style.color = "green";
         streakCount++;
+        correctCount++; // Increment correct counter
     } else {
         document.getElementById('result').innerText = `Incorrect. The correct payout was ${totalPayout}.`;
         document.getElementById('result').style.color = "red";
         streakCount = 0; // Reset streak counter if wrong
+        incorrectCount++; // Increment incorrect counter
     }
 
     // Update streak count display
     document.getElementById('streak-count').innerText = streakCount;
 
+    // Update correct and incorrect counts display
+    document.getElementById('correct-count').innerText = correctCount;
+    document.getElementById('incorrect-count').innerText = incorrectCount;
+
     // Record the previous bet and result, including the time taken
-    const betSummary = `Correct Payout: ${totalPayout} | Your Answer: ${userPayout} | Result: ${isCorrect ? 'Correct' : 'Incorrect'} | Time Taken: ${timeTaken} seconds`;
+    const betSummary = `Correct Payout: ${totalPayout} | Your Answer: ${userPayout} | Result: <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span> | Time Taken: ${timeTaken} seconds`;
     const betList = document.getElementById('bets-list');
     const newListItem = document.createElement('li');
-    newListItem.innerText = betSummary;
+    newListItem.innerHTML = betSummary; // Use innerHTML instead of innerText to render the HTML tags
     betList.insertBefore(newListItem, betList.firstChild); // Add new item at the top of the list
+
 });
 
 // Initialize the first bet with default max chips
