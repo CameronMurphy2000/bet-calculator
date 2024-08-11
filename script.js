@@ -17,10 +17,15 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
+let betStartTime = null; // Variable to store the start time of the bet
+
 // Generate random bets and calculate the payout
 function generateBet() {
     winningNumber = getRandomInt(36);
     totalPayout = 0;
+
+    // Capture the start time when the bet is generated
+    betStartTime = new Date();
 
     // Read the max chips value from user input
     maxChips = parseInt(document.getElementById('max-chips').value);
@@ -49,6 +54,10 @@ document.getElementById('payout-form').addEventListener('submit', function (even
     event.preventDefault();
     const userPayout = parseInt(document.getElementById('payout').value);
 
+    // Capture the time of submission
+    const betEndTime = new Date();
+    const timeTaken = (betEndTime - betStartTime) / 1000; // Time taken in seconds
+
     // Check if the user input matches the calculated payout
     const isCorrect = userPayout === totalPayout;
 
@@ -65,14 +74,13 @@ document.getElementById('payout-form').addEventListener('submit', function (even
     // Update streak count display
     document.getElementById('streak-count').innerText = streakCount;
 
-    // Record the previous bet and result
-    const betSummary = `Correct Payout: ${totalPayout} | Your Answer: ${userPayout} | Result: ${isCorrect ? 'Correct' : 'Incorrect'}`;
+    // Record the previous bet and result, including the time taken
+    const betSummary = `Correct Payout: ${totalPayout} | Your Answer: ${userPayout} | Result: ${isCorrect ? 'Correct' : 'Incorrect'} | Time Taken: ${timeTaken} seconds`;
     const betList = document.getElementById('bets-list');
     const newListItem = document.createElement('li');
     newListItem.innerText = betSummary;
     betList.insertBefore(newListItem, betList.firstChild); // Add new item at the top of the list
 });
-
 
 // Initialize the first bet with default max chips
 generateBet();
