@@ -51,6 +51,20 @@ function generateBet() {
     document.getElementById('result').innerText = '';
 }
 
+function reset() {
+    document.getElementById('result').innerText = '';
+    document.getElementById('payout').value = '';
+
+    // Reset the counters
+    streakCount = 0;
+    correctCount = 0;
+    incorrectCount = 0;
+    document.getElementById('streak-count').innerText = 0;
+    document.getElementById('correct-count').innerText = 0;
+    document.getElementById('incorrect-count').innerText = 0;
+    document.getElementById('bets-list').innerHTML = '';
+}
+
 // Handle form submission
 document.getElementById('payout-form').addEventListener('submit', function (event) {
     event.preventDefault();

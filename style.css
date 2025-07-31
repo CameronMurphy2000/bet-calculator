@@ -36,6 +36,12 @@ body {
     font-size: 16px;
 }
 
+#reset {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
 .streak-counter {
     margin-top: 20px;
     font-size: 20px;
